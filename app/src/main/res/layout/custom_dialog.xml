@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:minWidth="280dp">
+
+    <LinearLayout
+        android:id="@+id/dialoglayout"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="#F400A1"
+        app:layout_constraintBottom_toTopOf="@id/recyclerSpace"
+        >
+
+
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Kvartalni tanlang ."
+           android:textSize="20dp"
+           android:textStyle="bold"
+           android:gravity="clip_vertical"
+           android:textColor="@color/black"
+           app:layout_constraintStart_toStartOf="parent"
+           android:layout_marginStart="24dp"
+           android:layout_marginTop="20dp"/>
+        
+    </LinearLayout>
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerSpace"
+        android:layout_width="0dp"
+        android:layout_height="336dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dialoglayout"/>
+
+
+
+    <LinearLayout
+        android:id="@+id/buttonBar"
+        android:layout_width="0dp"
+        android:layout_height="52dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/recyclerSpace"
+        android:background="#F400A1">
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btnpositive"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:text="Ok"
+        app:layout_constraintRight_toRightOf="@id/buttonBar"
+        app:layout_constraintTop_toTopOf="@id/buttonBar"
+        app:layout_constraintBottom_toBottomOf="@id/buttonBar"
+        android:layout_marginRight="8dp"
+        android:background="@drawable/button"/>
+
+    <Button
+        android:id="@+id/btnnegative"
+        android:layout_width="88dp"
+        android:layout_height="36dp"
+        android:background="@drawable/button"
+        android:text="Cancel"
+        app:layout_constraintTop_toTopOf="@id/buttonBar"
+        app:layout_constraintBottom_toBottomOf="@id/buttonBar"
+        app:layout_constraintEnd_toStartOf="@id/btnpositive"
+        android:layout_marginEnd="8dp"/>
+
+
+
+
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
