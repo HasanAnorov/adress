@@ -1,33 +1,42 @@
 package com.example.adress
 
-import android.icu.text.CaseMap
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.android.synthetic.main.activity_main.*
 
-class ListAdapter(val second :MainActivity,val dialog :MainActivity): RecyclerView.Adapter<ListViewHolder>() {
+class ListAdapter(): RecyclerView.Adapter<ListViewHolder>() {
 
-  var   models :MutableList<User> = mutableListOf()
 
-fun setData(data :MutableList<User>){
 
-    models=data
-    notifyDataSetChanged()
 
-}
 
-fun setTitle(title:String){
-    dialog.codeEdittext.setText(title)
-}
+    var selectedItemPosition =-1
+    set(value) {
+        if (selectedItemPosition != -1){
+         models[selectedItemPosition].isSelected=false
+
+            notifyItemChanged(field)
+        }
+
+        field=value
+        notifyItemChanged(value)
+    }
+
+
+  var   models :List<MyModel> = listOf()
+    set(value){
+        field=value
+        notifyDataSetChanged()
+    }
 
 
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         var itemView : View =LayoutInflater.from(parent.context).inflate(R.layout.item,parent,false)
-  return ListViewHolder(itemView)
+  return ListViewHolder(itemView,this)
     }
 
     override fun getItemCount(): Int {
@@ -35,7 +44,7 @@ fun setTitle(title:String){
     }
 
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
-       holder.popuateModel(models[position],second)
+       holder.popuateModel(models[position],position)
     }
 
 
